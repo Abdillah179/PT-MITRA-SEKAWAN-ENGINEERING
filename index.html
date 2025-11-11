@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Mitra Sekawan Engineering - The Best Engineering Solution</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary-blue: #0052CC;
+            --secondary-blue: #0066FF;
+            --accent-cyan: #00C2FF;
+            --dark-blue: #001E3C;
+            --light-gray: #F7F9FC;
+            --text-dark: #1A1A1A;
+            --text-light: #6B7280;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--text-dark);
+            background: var(--light-gray);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 1.2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            margin: 0 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 16px !important;
+        }
+        
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::before {
+            width: 80%;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #001E3C 0%, #0052CC 50%, #00C2FF 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 194, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 82, 204, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #FFFFFF, #00C2FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-hero {
+            padding: 16px 48px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            background: white;
+            color: var(--primary-blue);
+            box-shadow: 0 10px 40px rgba(0, 194, 255, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 194, 255, 0.6);
+            background: linear-gradient(135deg, white, #E6F7FF);
+        }
+        
+        /* Section Styling */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .company-info-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F7F9FC 100%);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 82, 204, 0.1);
+            margin-bottom: 40px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-blue), var(--accent-cyan));
+        }
+        
+        .company-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 82, 204, 0.15);
+        }
+        
+        .value-box {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            margin: 15px 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 82, 204, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 194, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .value-box:hover::before {
+            left: 100%;
+        }
+        
+        .value-box:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.15);
+            border-color: var(--accent-cyan);
+        }
+        
+        .value-box i {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+        
+        .value-box:hover i {
+            transform: scale(1.15) rotateY(360deg);
+        }
+        
+        .value-box h4 {
+            color: var(--dark-blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 120px 0;
+            background: var(--light-gray);
+            position: relative;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.06);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            border: 1px solid rgba(0, 82, 204, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 82, 204, 0.15);
+            border-color: var(--accent-cyan);
+        }
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.25);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 194, 255, 0.4);
+        }
+        
+        .service-icon i {
+            font-size: 2.8rem;
+            color: white;
+        }
+        
+        .service-card h4 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 120px 0;
+            background: white;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 194, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.2);
+        }
+        
+        .gallery-item-content {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #E8F4FD, #F0F9FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-content {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item i {
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 30, 60, 0.95) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h5 {
+            color: white;
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            padding: 120px 0;
+            background: var(--light-gray);
+        }
+        
+        .partner-logo {
+            padding: 30px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 140px;
+            margin: 15px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 82, 204, 0.08);
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.15);
+            border-color: var(--accent-cyan);
+        }
+        
+        .partner-logo i {
+            transition: all 0.4s ease;
+        }
+        
+        .partner-logo:hover i {
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #001E3C 0%, #0052CC 50%, #00C2FF 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(0, 194, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 82, 204, 0.3) 0%, transparent 50%);
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-bottom: 24px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 194, 255, 0.3);
+        }
+        
+        .contact-info i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .contact-info p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, white, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 8px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links a:hover {
+            background: white;
+            color: var(--primary-blue);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 194, 255, 0.4);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(0, 194, 255, 0.5);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .company-info-card {
+                padding: 30px;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-cog me-2"></i>MITRA SEKAWAN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#partners">Mitra</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-particles"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="hero-title">The Best Engineering Solution</h1>
+                    <p class="hero-subtitle">PT Mitra Sekawan Engineering</p>
+                    <p class="hero-description">Mitra terpercaya untuk solusi manufaktur, maintenance, dan general supply berkualitas tinggi</p>
+                    <a href="#contact" class="btn btn-hero">
+                        <i class="fas fa-phone-alt me-2"></i>Hubungi Kami Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Tentang Kami</h2>
+                <p class="section-subtitle">Komitmen kami untuk memberikan yang terbaik</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="company-info-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-primary mb-4 fw-bold"><i class="fas fa-building me-3"></i>Company History</h3>
+                        <p class="lead text-muted mb-4">
+                            <strong>MITRA SEKAWAN ENGINEERING</strong> adalah mitra pilihan bagi pelanggan yang secara terus-menerus meningkatkan kompetensi untuk dapat menawarkan produk dan layanan terbaik demi memenuhi kepuasan pelanggan.
+                        </p>
+                        <p class="text-muted mb-3">
+                            Perusahaan kami bergerak di bidang maintenance, civil, fabrikasi dan general supply dengan standar kualitas tinggi untuk memenuhi kebutuhan industri dari skala kecil, menengah hingga besar.
+                        </p>
+                        <p class="text-muted mb-3">
+                            Dengan keterampilan komunikasi yang baik dan dukungan dari para ahli dan profesional, kami memudahkan pelanggan untuk mendapatkan kepuasan dari produk yang telah disesuaikan dengan kebutuhan.
+                        </p>
+                        <p class="text-muted mb-3">
+                            Produk kami telah digunakan oleh berbagai perusahaan, pasar perdagangan, dan kantor. Pengejaran kesempurnaan yang konstan dan menjadi lebih inovatif adalah sumber energi dan harmoni kami.
+                        </p>
+                        <p class="text-primary fw-bold mt-4 fs-5">
+                            <em>"Kami berani memberikan yang lebih baik untuk berada di garis depan"</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision Mission -->
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="company-info-card" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan)); color: white; border: none;">
+                        <h3 class="mb-4 fw-bold"><i class="fas fa-eye me-3"></i>Visi</h3>
+                        <p class="lead mb-0" style="color: rgba(255,255,255,0.95);">
+                            Menjadi perusahaan terbaik dan terkemuka di bidang Manufaktur, Maintenance dan General Supply
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="company-info-card" style="background: linear-gradient(135deg, #001E3C, #0052CC); color: white; border: none;">
+                        <h3 class="mb-4 fw-bold"><i class="fas fa-bullseye me-3"></i>Misi</h3>
+                        <p class="lead mb-0" style="color: rgba(255,255,255,0.95);">
+                            Memberikan pelayanan dan respon cepat terhadap kebutuhan dan keluhan pelanggan. Menyediakan harga yang kompetitif dengan kualitas yang baik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h3 class="fw-bold" style="font-size: 2.5rem; background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">THE BEST</h3>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-box">
+                        <i class="fas fa-star"></i>
+                        <h4>QUALITY</h4>
+                        <p class="text-muted">Kualitas terbaik dalam setiap produk dan layanan</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-box">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>COST</h4>
+                        <p class="text-muted">Harga kompetitif dan efisien</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-box">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h4>DELIVERY</h4>
+                        <p class="text-muted">Pengiriman tepat waktu dan terpercaya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Layanan Kami</h2>
+                <p class="section-subtitle">Solusi lengkap untuk kebutuhan engineering Anda</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4 class="text-center text-primary mb-3">Manufacturing</h4>
+                        <p class="text-muted text-center">Fabrikasi, Dies and Jig, Electrical, SPM dengan standar industri tinggi</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="text-center text-primary mb-3">Maintenance</h4>
+                        <p class="text-muted text-center">Pemeliharaan mesin, civil, dan peralatan industri profesional</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h4 class="text-center text-primary mb-3">AC & Chiller</h4>
+                        <p class="text-muted text-center">Instalasi dan maintenance sistem pendingin industri</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h4 class="text-center text-primary mb-3">General Supply</h4>
+                        <p class="text-muted text-center">Penyediaan berbagai kebutuhan material dan peralatan industri</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Division Structure -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h3 class="fw-bold" style="font-size: 2.2rem; color: var(--primary-blue);">Struktur Divisi</h3>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <h5 class="text-primary mb-4 fw-bold">DIVISI MANUFACTURING</h5>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Fabrikasi</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dies and Jig</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Electrical</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>SPM</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <h5 class="text-primary mb-4 fw-bold">DIVISI MAINTENANCE</h5>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Maintenance Machine</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Civil</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <h5 class="text-primary mb-4 fw-bold">DIVISI GENERAL SUPPLY</h5>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>All Purpose</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Material Supply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Galeri Kami</h2>
+                <p class="section-subtitle">Portfolio pekerjaan dan fasilitas kami</p>
+            </div>
+
+            <!-- Workshop Facility -->
+            <div class="mb-5">
+                <h3 class="text-primary mb-4 fw-bold" data-aos="fade-up">Workshop Facility</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Mesin Bubut</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Mesin Milling & Frais</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Mesin CNC</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-burn"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Welding Equipment</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Purpose Machine -->
+            <div class="mb-5">
+                <h3 class="text-primary mb-4 fw-bold" data-aos="fade-up">Special Purpose Machine & Fabrikasi</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Special Purpose Machine</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Fabrikasi Custom</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Hydraulic Press</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Dies & Jig</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance -->
+            <div class="mb-5">
+                <h3 class="text-primary mb-4 fw-bold" data-aos="fade-up">Maintenance</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Industrial Maintenance</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Civil Works</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-paint-roller"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Painting & Coating</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Electrical Work</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AC & Chiller -->
+            <div class="mb-5">
+                <h3 class="text-primary mb-4 fw-bold" data-aos="fade-up">AC & Chiller Services</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Industrial Chiller</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-fan"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>AC Installation</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>AC Maintenance</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>HVAC System</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machining Parts -->
+            <div>
+                <h3 class="text-primary mb-4 fw-bold" data-aos="fade-up">Machining Parts</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Precision Parts</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-dharmachakra"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Custom Components</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-circle-notch"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Flanges & Fittings</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-item">
+                            <div class="gallery-item-content">
+                                <i class="fas fa-screwdriver"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h5>Spare Parts</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Mitra Kerja Kami</h2>
+                <p class="section-subtitle">Dipercaya oleh perusahaan-perusahaan terkemuka</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-industry fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">CNC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-cogs fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">PT Candra Nusantara</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-tools fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">Twintech</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-building fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">IP Precision</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-ship fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">Yamamoto Aero</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-wrench fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">PT Unique Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-anchor fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">Yanmar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-hard-hat fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">Ihara</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="900">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-industry fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">PT Daihatsu Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="1000">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-car fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">TRD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="1100">
+                    <div class="partner-logo">
+                        <div class="text-center">
+                            <i class="fas fa-cube fa-3x text-primary mb-2"></i>
+                            <p class="mb-0 small fw-bold">PT Komatsu Forklift</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title text-white">Hubungi Kami</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Kami siap membantu kebutuhan engineering Anda</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Alamat</h4>
+                        <p>KARABA INDAH BLOK GD/06<br>Desa/Kelurahan Wadas<br>Kec. Telukjambe Timur<br>Kab. Karawang</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Telepon</h4>
+                        <p><a href="tel:+6281116469">+62811164469</a></p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:msekawanengineering@gmail.com">msekawanengineering@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>NPWP</h4>
+                        <p>63.178.039.2-408.000</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-id-card"></i>
+                        <h4>NIB</h4>
+                        <p>0702220014983</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="contact-info">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Bidang Usaha</h4>
+                        <p class="h5">Perdagangan Besar & Jasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo mb-3">
+                    <i class="fas fa-cog me-2"></i>MITRA SEKAWAN ENGINEERING
+                </div>
+                <p class="mb-4" style="color: rgba(255,255,255,0.8);">The Best Engineering Solution</p>
+                <div class="social-links mb-4">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="mb-0" style="color: rgba(255,255,255,0.6);">&copy; 2025 PT Mitra Sekawan Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Create particles in hero section
+        function createParticles() {
+            const particlesContainer = document.querySelector('.hero-particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled / 600);
+            }
+        });
+
+        // Animated counter for stats (if you want to add stats)
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Add hover effect to service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+        });
+
+        // Add intersection observer for animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.service-card, .value-box, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add smooth reveal animation for images
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Add active state to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced gallery hover effects
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2) rotate(360deg)';
+                    icon.style.transition = 'transform 0.6s ease';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Add ripple effect on button click
+        document.querySelectorAll('.btn-hero').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Preload AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.refresh();
+        });
+
+        // Add dynamic shadow on scroll for cards
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.company-info-card, .service-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const scrollPercent = (rect.top / window.innerHeight);
+                
+                if (scrollPercent < 1 && scrollPercent > 0) {
+                    const shadowIntensity = (1 - scrollPercent) * 20;
+                    card.style.boxShadow = `0 ${shadowIntensity}px ${shadowIntensity * 2}px rgba(0, 82, 204, ${0.1 * (1 - scrollPercent)})`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
