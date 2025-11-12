@@ -1612,6 +1612,33 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Manual toggle untuk navbar jika Bootstrap gagal
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            navbarCollapse.classList.toggle('show');
+            
+            // Update aria-expanded
+            const isExpanded = navbarCollapse.classList.contains('show');
+            navbarToggler.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        // Close menu when clicking nav links
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navbarCollapse.classList.remove('show');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+});
+    </script>
     <script>
         // Initialize AOS
         AOS.init({
