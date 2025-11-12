@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Mitra Sekawan Engineering - The Best Engineering Solution</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -47,15 +48,25 @@
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
         }
+
+        .navbar-brand img {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+    transition: height 0.3s ease;
+}
         
         .navbar-brand {
             font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
         }
         
         .navbar-nav .nav-link {
@@ -609,6 +620,7 @@
             transition: all 0.4s ease;
         }
         
+        
         .partner-logo:hover i {
             transform: scale(1.2);
         }
@@ -766,6 +778,18 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .navbar-brand {
+        font-size: 1rem;
+        letter-spacing: -0.3px;
+    }
+    
+    .navbar-brand img {
+        height: 30px;
+    }
+    
+    .navbar.scrolled .navbar-brand img {
+        height: 28px;
+    }
             .hero-title {
                 font-size: 2.5rem;
                 letter-spacing: -1px;
@@ -799,6 +823,15 @@
         }
         
         @media (max-width: 480px) {
+            .navbar-brand {
+        font-size: 0.85rem;
+        letter-spacing: -0.2px;
+    }
+    
+    .navbar-brand img {
+        height: 25px;
+        margin-right: 6px;
+    }
             .hero-title {
                 font-size: 2rem;
             }
@@ -817,6 +850,37 @@
             0% { background-position: -1000px 0; }
             100% { background-position: 1000px 0; }
         }
+
+        .navbar.scrolled .navbar-brand img {
+    height: 35px;
+}
+
+        /* Styling untuk teks bilingual */
+.text-primary-lang {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.text-secondary-lang {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.85;
+    padding-left: 20px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .text-primary-lang {
+        font-size: 1rem;
+    }
+    
+    .text-secondary-lang {
+        font-size: 0.9rem;
+        padding-left: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -824,7 +888,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-cog me-2"></i>MITRA SEKAWAN
+                <img src="assets/logo.png" alt="" class="img-fluid">MITRA SEKAWAN ENGINEERING
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -902,16 +966,22 @@
                 <div class="col-lg-6 mb-4" data-aos="fade-right">
                     <div class="company-info-card" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan)); color: white; border: none;">
                         <h3 class="mb-4 fw-bold"><i class="fas fa-eye me-3"></i>Visi</h3>
-                        <p class="lead mb-0" style="color: rgba(255,255,255,0.95);">
-                            Menjadi perusahaan terbaik dan terkemuka di bidang Manufaktur, Maintenance dan General Supply
+                        <p class="text-primary-lang mb-3" style="color: rgba(255,255,255,0.95);">
+                            Menjadi perusahaan terbaik dan terdepan di bidang Manufaktur, Perawatan dan General Supply
+                        </p>
+                        <p class="text-secondary-lang mb-0" style="color: rgba(255,255,255,0.95);">
+                            To be the best and leading company in the field of Manufacture, Maintenance and General Supply
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-4" data-aos="fade-left">
                     <div class="company-info-card" style="background: linear-gradient(135deg, #001E3C, #0052CC); color: white; border: none;">
                         <h3 class="mb-4 fw-bold"><i class="fas fa-bullseye me-3"></i>Misi</h3>
-                        <p class="lead mb-0" style="color: rgba(255,255,255,0.95);">
-                            Memberikan pelayanan dan respon cepat terhadap kebutuhan dan keluhan pelanggan. Menyediakan harga yang kompetitif dengan kualitas yang baik.
+                        <p class="text-primary-lang mb-3" style="color: rgba(255,255,255,0.95);">
+                            Memberikan pelayanan dan respon cepat terhadap kebutuhan dan keluhan pelanggan. Memberikan harga yang kompetitif dan kualitas yang baik.
+                        </p>
+                        <p class="text-secondary-lang mb-0" style="color: rgba(255,255,255,0.95);">
+                            Provide service and fast response to customer needs and complaints. Provide competitive prices and good quality.
                         </p>
                     </div>
                 </div>
